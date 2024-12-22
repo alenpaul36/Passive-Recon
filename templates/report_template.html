@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Passive Reconnaissance Report - {{ domain }}</title>
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #34495e;
+            --accent-color: #3498db;
+            --success-color: #27ae60;
+            --warning-color: #f39c12;
+            --danger-color: #e74c3c;
+            --light-bg: #ecf0f1;
+            --dark-bg: #2c3e50;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: var(--light-bg);
+            color: var(--primary-color);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            background-color: var(--dark-bg);
+            color: white;
+            padding: 2rem;
+            text-align: center;
+            margin-bottom: 2rem;
+            border-radius: 8px;
+        }
+
+        .section {
+            background: white;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--accent-color);
+        }
+
+        .section-title {
+            margin: 0;
+            color: var(--primary-color);
+        }
+
+        .section-description {
+            background-color: var(--light-bg);
+            padding: 1rem;
+            border-radius: 4px;
+            margin-bottom: 1rem;
+            font-style: italic;
+        }
+
+        .finding {
+            margin: 1rem 0;
+            padding: 1rem;
+            border-left: 4px solid var(--accent-color);
+            background-color: rgba(52, 152, 219, 0.1);
+        }
+
+        .finding.high-risk {
+            border-left-color: var(--danger-color);
+            background-color: rgba(231, 76, 60, 0.1);
+        }
+
+        .finding.medium-risk {
+            border-left-color: var(--warning-color);
+            background-color: rgba(243, 156, 18, 0.1);
+        }
+
+        .finding.low-risk {
+            border-left-color: var(--success-color);
+            background-color: rgba(39, 174, 96, 0.1);
+        }
+
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+        }
+
+        .data-table th,
+        .data-table td {
+            padding: 0.75rem;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .data-table th {
+            background-color: var(--accent-color);
+            color: white;
+        }
+
+        .risk-indicator {
+            display: inline-block;
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            font-weight: bold;
+            margin-left: 1rem;
+        }
+
+        .risk-high {
+            background-color: var(--danger-color);
+            color: white;
+        }
+
+        .risk-medium {
+            background-color: var(--warning-color);
+            color: white;
+        }
+
+        .risk-low {
+            background-color: var(--success-color);
+            color: white;
+        }
+
+        .recommendations {
+            margin-top: 1rem;
+            padding: 1rem;
+            background-color: var(--light-bg);
+            border-radius: 4px;
+        }
+
+        .recommendations h4 {
+            color: var(--primary-color);
+            margin-top: 0;
+        }
+
+        .recommendations ul {
+            margin: 0;
+            padding-left: 1.5rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Passive Reconnaissance Report</h1>
+            <p>Target Domain: {{ domain }}</p>
+            <p>Report Generated: {{ timestamp }}</p>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <h2 class="section-title">Executive Summary</h2>
+            </div>
+            <div class="section-description">
+                This report presents the findings of a passive reconnaissance operation conducted on {{ domain }}. 
+                Passive reconnaissance involves gathering information about the target without direct interaction, 
+                ensuring stealth and minimizing detection risk. The findings below detail potential security 
+                concerns and attack vectors that could be exploited in a red team engagement.
+            </div>
+            <div class="finding">
+                <h3>Key Findings Overview</h3>
+                <ul>
+                    {% if whois %}
+                    <li>Domain age: {{ whois.creation_date }} ({{ whois.age_analysis }})</li>
+                    {% endif %}
+                    {% if security_headers %}
+                    <li>Missing security headers: {{ security_headers.missing_count }}</li>
+                    {% endif %}
+                    {% if credential_leaks %}
+                    <li>Data breaches found: {{ credential_leaks|length }}</li>
+                    {% endif %}
+                    {% if github_secrets %}
+                    <li>GitHub exposures: {{ github_secrets|length }}</li>
+                    {% endif %}
+                </ul>
+            </div>
+        </div>
+
+        <!-- WHOIS Information Section -->
+        <div class="section">
+            <div class="section-header">
+                <h2 class="section-title">WHOIS Information</h2>
+            </div>
+            <div class="section-description">
+                WHOIS data provides essential information about domain registration and ownership. In red teaming, 
+                this information can be used for social engineering, identifying organization structure, and 
+                understanding the target's digital footprint.
+            </div>
+            {% if whois %}
+            <div class="finding">
+                <table class="data-table">
+                    <tr><th>Attribute</th><th>Value</th></tr>
+                    {% for key, value in whois.items() %}
+                    <tr><td>{{ key }}</td><td>{{ value }}</td></tr>
+                    {% endfor %}
+                </table>
+                <div class="recommendations">
+                    <h4>Security Implications</h4>
+                    <ul>
+                        <li>Domain age and registration details can indicate legitimacy and potential attack vectors</li>
+                        <li>Contact information could be used in social engineering attempts</li>
+                        <li>Registration patterns might reveal organizational structure</li>
+                    </ul>
+                </div>
+            </div>
+            {% endif %}
+        </div>
+
+        <!-- DNS Records Section -->
+        <div class="section">
+            <div class="section-header">
+                <h2 class="section-title">DNS Records</h2>
+            </div>
+            <div class="section-description">
+                DNS records reveal the infrastructure setup of the target domain. This information is crucial for 
+                mapping attack surfaces, identifying potential subdomains, and understanding the network architecture.
+            </div>
+            {% if dns %}
+            <div class="finding">
+                {% for record_type, records in dns.items() %}
+                <h3>{{ record_type }} Records</h3>
+                <ul>
+                    {% for record in records %}
+                    <li>{{ record }}</li>
+                    {% endfor %}
+                </ul>
+                {% endfor %}
+                <div class="recommendations">
+                    <h4>Security Implications</h4>
+                    <ul>
+                        <li>MX records reveal email infrastructure</li>
+                        <li>A/AAAA records show server locations</li>
+                        <li>CNAME records might reveal third-party services</li>
+                        <li>TXT records could expose SPF, DKIM, and other security policies</li>
+                    </ul>
+                </div>
+            </div>
+            {% endif %}
+        </div>
+
+        <!-- Security Headers Section -->
+        <div class="section">
+            <div class="section-header">
+                <h2 class="section-title">Security Headers</h2>
+            </div>
+            <div class="section-description">
+                Security headers are HTTP response headers that help protect against common web vulnerabilities. 
+                Missing headers can indicate potential security weaknesses that could be exploited.
+            </div>
+            {% if security_headers %}
+            <div class="finding">
+                <table class="data-table">
+                    <tr>
+                        <th>Header</th>
+                        <th>Status</th>
+                        <th>Risk Level</th>
+                    </tr>
+                    {% for header, value in security_headers.items() %}
+                    <tr>
+                        <td>{{ header }}</td>
+                        <td>{{ value }}</td>
+                        <td>
+                            {% if value == "Not Set" %}
+                            <span class="risk-indicator risk-high">High</span>
+                            {% else %}
+                            <span class="risk-indicator risk-low">Low</span>
+                            {% endif %}
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </table>
+                <div class="recommendations">
+                    <h4>Security Implications</h4>
+                    <ul>
+                        <li>Missing X-Frame-Options could enable clickjacking attacks</li>
+                        <li>Absence of CSP increases risk of XSS and injection attacks</li>
+                        <li>Lack of HSTS could allow SSL stripping attacks</li>
+                    </ul>
+                </div>
+            </div>
+            {% endif %}
+        </div>
+
+        <!-- Technology Stack Section -->
+        <div class="section">
+            <div class="section-header">
+                <h2 class="section-title">Technology Stack</h2>
+            </div>
+            <div class="section-description">
+                Understanding the target's technology stack helps identify potential vulnerabilities based on known 
+                weaknesses in specific technologies, frameworks, or versions.
+            </div>
+            {% if technology_stack %}
+            <div class="finding">
+                {% for category, technologies in technology_stack.items() %}
+                <h3>{{ category }}</h3>
+                <ul>
+                    {% for tech in technologies %}
+                    <li>{{ tech }}</li>
+                    {% endfor %}
+                </ul>
+                {% endfor %}
+                <div class="recommendations">
+                    <h4>Security Implications</h4>
+                    <ul>
+                        <li>Outdated versions may have known vulnerabilities</li>
+                        <li>Technology combinations might reveal potential attack paths</li>
+                        <li>Framework identification aids in targeted exploitation research</li>
+                    </ul>
+                </div>
+            </div>
+            {% endif %}
+        </div>
+
+        <!-- Data Breaches Section -->
+        <div class="section">
+            <div class="section-header">
+                <h2 class="section-title">Data Breaches</h2>
+            </div>
+            <div class="section-description">
+                Historical data breaches can provide valuable information about potential credential reuse, exposed 
+                sensitive data, and the organization's security posture over time.
+            </div>
+            {% if credential_leaks %}
+            <div class="finding high-risk">
+                {% for breach in credential_leaks %}
+                <h3>Breach: {{ breach.Name }}</h3>
+                <p>Date: {{ breach.BreachDate }}</p>
+                <p>Affected Accounts: {{ breach.PwnCount }}</p>
+                <h4>Compromised Data Types:</h4>
+                <ul>
+                    {% for data_type in breach.DataClasses %}
+                    <li>{{ data_type }}</li>
+                    {% endfor %}
+                </ul>
+                {% endfor %}
+                <div class="recommendations">
+                    <h4>Security Implications</h4>
+                    <ul>
+                        <li>Exposed credentials could enable password spraying attacks</li>
+                        <li>Leaked data might be useful for social engineering</li>
+                        <li>Historical breaches indicate security practices over time</li>
+                    </ul>
+                </div>
+            </div>
+            {% endif %}
+        </div>
+
+        <!-- GitHub Exposure Section -->
+        <div class="section">
+            <div class="section-header">
+                <h2 class="section-title">GitHub Exposure</h2>
+            </div>
+            <div class="section-description">
+                Code repositories can inadvertently expose sensitive information such as API keys, credentials, 
+                and internal infrastructure details.
+            </div>
+            {% if github_secrets %}
+            <div class="finding high-risk">
+                {% for repo in github_secrets %}
+                <h3>Repository: {{ repo.name }}</h3>
+                {% if repo.findings %}
+                <ul>
+                    {% for finding in repo.findings %}
+                    <li>{{ finding.type }} in {{ finding.file }}</li>
+                    {% endfor %}
+                </ul>
+                {% endif %}
+                {% endfor %}
+                <div class="recommendations">
+                    <h4>Security Implications</h4>
+                    <ul>
+                        <li>Exposed credentials could provide direct system access</li>
+                        <li>Configuration files might reveal infrastructure details</li>
+                        <li>Source code could expose security vulnerabilities</li>
+                    </ul>
+                </div>
+            </div>
+            {% endif %}
+        </div>
+
+        <!-- Google Dorks Section -->
+        <div class="section">
+            <div class="section-header">
+                <h2 class="section-title">Google Dorks Findings</h2>
+            </div>
+            <div class="section-description">
+                Google dorking can reveal sensitive information indexed by search engines, including exposed 
+                documents, configuration files, and administrative interfaces.
+            </div>
+            {% if google_dorks %}
+            <div class="finding medium-risk">
+                {% for finding in google_dorks %}
+                <div class="finding">
+                    <h3>Query: {{ finding.query }}</h3>
+                    <p>URL: <a href="{{ finding.url }}">{{ finding.url }}</a></p>
+                    {% if finding.description %}
+                    <p>{{ finding.description }}</p>
+                    {% endif %}
+                </div>
+                {% endfor %}
+                <div class="recommendations">
+                    <h4>Security Implications</h4>
+                    <ul>
+                        <li>Exposed documents might contain sensitive information</li>
+                        <li>Directory listings could reveal internal structure</li>
+                        <li>Configuration files might expose security settings</li>
+                    </ul>
+                </div>
+            </div>
+            {% endif %}
+        </div>
+
+        <!-- Threat Intelligence Section -->
+        <div class="section">
+            <div class="section-header">
+                <h2 class="section-title">Threat Intelligence</h2>
+            </div>
+            <div class="section-description">
+                Threat intelligence provides context about known malicious activities, compromised assets, and 
+                potential security incidents related to the target domain.
+            </div>
+            {% if threat_intel %}
+            <div class="finding">
+                {% for finding in threat_intel %}
+                <div class="finding {% if finding.severity == 'high' %}high-risk{% elif finding.severity == 'medium' %}medium-risk{% else %}low-risk{% endif %}">
+                    <h3>{{ finding.type }}</h3>
+                    <p>Severity: {{ finding.severity }}</p>
+                    <p>{{ finding.description }}</p>
+                    {% if finding.indicators %}
+                    <h4>Indicators:</h4>
+                    <ul>
+                        {% for indicator in finding.indicators %}
+                        <li>{{ indicator }}</li>
+                        {% endfor %}
+                    </ul>
+                    {% endif %}
+                </div>
+                {% endfor %}
+                <div class="recommendations">
+                    <h4>Security Implications</h4>
+                    <ul>
+                        <li>Known compromises indicate security weaknesses</li>
+                        <li>Malicious activities suggest potential entry points</li>
+                        <li>Historical incidents reveal attack patterns</li>
+                    </ul>
+                </div>
+            </div>
+            {% endif %}
+        </div>
+
+        <!-- Recommendations Section -->
+        <div class="section">
+            <div class="section-header">
+                <h2 class="section-title">Overall Recommendations</h2>
+            </div>
+            <div class="section-description">
+                Based on the findings of this passive reconnaissance, here are the key recommendations for 
+                potential attack vectors and security improvements.
+            </div>
+            <div class="finding">
+                <h3>Primary Attack Vectors</h3>
+                <ul>
+                    {% if security_headers and security_headers.missing_count > 0 %}
+                    <li>Web Application Attacks (due to missing security headers)</li>
+                    {% endif %}
+                    {% if credential_leaks %}
+                    <li>Credential Stuffing/Password Spraying (due to historical breaches)</li>
+                    {% endif %}
+                    {% if github_secrets %}
+                    <li>Direct System Access (via exposed credentials/configurations)</li>
+                    {% endif %}
+                </ul>
+
+                <h3>Secondary Attack Vectors</h3>
+                <ul>
+                    {% if dns %}
+                    <li>Infrastructure Mapping (based on DNS records)</li>
+                    {% endif %}
+                    {% if technology_stack %}
+                    <li>Known Vulnerabilities (in identified technologies)</li>
+                    {% endif %}
+                    <li>Social Engineering (using collected WHOIS and breach data)</li>
+                </ul>
+
+                <div class="recommendations">
+                    <h4>Next Steps for Red Team Assessment</h4>
+                    <ul>
+                        <li>Validate findings through active reconnaissance</li>
+                        <li>Develop targeted exploit chains based on discovered vulnerabilities</li>
+                        <li>Create custom wordlists from gathered information</li>
+                        <li>Plan social engineering campaigns using collected data</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
