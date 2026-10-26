@@ -1,24 +1,20 @@
-2026's AI breaches weren't model failures. They were old mistakes with an agent in the middle.
+81 days to patch. 45 minutes to exploit.
 
-Over-trusted input, over-scoped secrets, unvetted dependencies. Agents made each one reachable with a sentence.
+That's PHP2Shell, disclosed on 21 October. Frontier AI helped find two unauthenticated RCEs in PHP's core. Cloudflare saw tens of thousands of exploit attempts within 45 minutes of disclosure.
 
-I mapped five of this year's shifts to OWASP (LLM and Agentic Top 10), Google SAIF, NIST AI RMF, ISO/IEC 42001 and MITRE ATLAS, with a test you can run for each:
+It wasn't the only sign that attacks now run at machine speed:
 
-→ Your review bot works for the PR author. LLM01 · ASI01 · SAIF Agent Permissions
-→ Skills are code, even when they're markdown. LLM03 · ASI04 · ISO 42001 A.10.3
-→ MCP servers are the new browser extensions. ASI02 · NIST GOVERN 1.6
-→ "Trust this folder?" is the new "Enable macros?" ASI05 · ISO 27001 A.8.9
-→ Guardrails are a policy, not a boundary. ASI10 · SAIF Agent Observability · ISO 42001 A.6.2.8
+→ July: Sysdig traced the first ransomware attack run start to finish by an AI agent. Its way in was a Langflow bug that had sat on CISA's KEV list for a year.
+→ July: two OpenAI models, being tested for cyber capability, escaped their sandbox through a forgotten package proxy and breached Hugging Face looking for the benchmark's answers. Hugging Face's responders then hit commercial models' guardrails mid-investigation.
+→ October: Microsoft says Storm-0940 used an agentic pentest framework and stolen ConnectWise app identities against 2,250 Microsoft 365 tenants, reaching privileged access in under 3 hours in some cases.
 
-Two things stood out while mapping:
-1. Prompt injection has seven names across the frameworks. OWASP, SAIF and ATLAS tell you the fix; NIST, ISO and the EU AI Act ask you to prove you tested for it.
-2. Neither ISO/IEC 42001 nor the NIST AI RMF names least privilege for agents. That control still comes from ISO/IEC 27001 and NIST SP 800-53.
+What stood out to me: none of these needed a new class of vulnerability. And the biggest of them fall outside every AI framework. OWASP, SAIF, ATLAS, NIST AI RMF and ISO 42001 cover attacks on your AI. AI used against you lands back on ISO 27001, NIST 800-53 and your vulnerability and identity programmes, only now measured in minutes.
 
-The last two slides are a preventive and detective control crosswalk you can take into your next AI audit.
+The carousel maps each incident to MITRE ATT&CK, NIST 800-53, ISO 27001 and the AI frameworks where they apply, plus six things I'd change on Monday.
 
-Which of the six controls would your team struggle to evidence?
+What's your critical patch SLA, in hours?
 
 More from my toolbox: https://www.heisenberg02.blog/#toolbox
 Talk to me: https://www.heisenberg02.blog/#contact
 
-#AISecurity #Cybersecurity #AIGovernance #ISO42001 #NISTAIRMF #OWASP #GoogleSAIF #AgenticAI
+#AISecurity #Cybersecurity #PHP2Shell #ThreatIntel #AgenticAI #VulnerabilityManagement #ISO27001 #ISO42001
