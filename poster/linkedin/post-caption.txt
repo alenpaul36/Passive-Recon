@@ -1,5 +1,5 @@
-AI didn’t need new tricks this year.
-It just got faster at the old ones.
+Attacks now run at machine speed.
+Most defence still runs on change tickets.
 
 What’s your critical patch SLA, in hours?
 
