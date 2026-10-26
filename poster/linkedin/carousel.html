@@ -116,16 +116,18 @@
   .mon li b { display: block; font-size: 35px; line-height: 1.14; letter-spacing: -0.015em; }
   .mon li span { display: block; margin-top: 6px; font-size: 27px; line-height: 1.34; }
 
-  /* grc table */
-  .grc-lead { margin-top: 26px; font-size: 32px; line-height: 1.34; max-width: 920px; }
-  .grc { width: 100%; border-collapse: collapse; margin-top: 48px; }
-  .grc th, .grc td { text-align: left; vertical-align: top; padding: 22px 14px; }
-  .grc thead th { font-size: 23px; font-weight: 800; color: var(--accent); }
-  .grc tbody tr:nth-child(odd) { background: var(--surface); }
-  .grc tbody th { font-size: 29px; font-weight: 800; line-height: 1.2; width: 210px; }
-  .grc td { font-size: 26px; line-height: 1.3; font-weight: 600; }
-  .grc td small { display: block; color: var(--muted); font-weight: 400; font-size: 21px; }
-  .grc-note { margin-top: auto; background: var(--accent); color: var(--accent-ink); padding: 26px 32px; font-size: 28px; line-height: 1.32; font-weight: 800; }
+  /* grc cards */
+  .grc-lead { margin-top: 18px; font-size: 30px; line-height: 1.3; max-width: 920px; }
+  .gr { list-style: none; margin-top: 26px; display: grid; gap: 6px; }
+  .gr li { background: var(--surface); padding: 20px 24px; }
+  .gr li > b { display: block; font-size: 29px; line-height: 1.15; letter-spacing: -0.015em; }
+  .gr .ev { margin-top: 4px; font-size: 23px; line-height: 1.3; }
+  .gr .ev span { color: var(--accent); font-weight: 800; }
+  .gr .ids { margin-top: 12px; display: grid; grid-template-columns: 1fr 0.78fr 0.82fr 1.4fr; gap: 6px 18px; }
+  .gr dt { font-size: 17px; font-weight: 800; color: var(--muted); }
+  .gr dd { font-size: 20px; font-weight: 700; line-height: 1.28; }
+  .gr .id1 { white-space: nowrap; }
+  .grc-note { margin-top: auto; background: var(--accent); color: var(--accent-ink); padding: 22px 28px; font-size: 25px; line-height: 1.3; font-weight: 800; }
 
   /* sources */
   .srcs { list-style: none; margin-top: 40px; display: grid; gap: 4px; }
@@ -235,18 +237,15 @@
 
 <!-- 9. GRC -->
 <section class="slide">
-  <h2>For your audit and GRC team</h2>
-  <p class="grc-lead">The same four incidents, mapped to the controls you already report on.</p>
-  <table class="grc">
-    <thead><tr><th></th><th>ATT&amp;CK</th><th>NIST 800-53</th><th>ISO 27001</th><th>AI frameworks</th></tr></thead>
-    <tbody>
-      <tr><th>PHP2Shell</th><td>T1190</td><td>SI-2 · RA-5</td><td>A.8.8</td><td>SAIF<small>Automate defenses</small></td></tr>
-      <tr><th>Storm-0940</th><td>T1199<br>T1078.004</td><td>SA-9 · AC-6</td><td>A.5.21 · A.8.2</td><td>None apply<small>not your AI</small></td></tr>
-      <tr><th>JADEPUFFER</th><td>T1078.001<br>T1486</td><td>IA-5 · CP-9</td><td>A.8.9 · A.8.13</td><td>SAIF<small>Insecure Integrated Component</small></td></tr>
-      <tr><th>OpenAI / Hugging Face</th><td>OWASP<br>ASI10</td><td>SC-7</td><td>A.8.20<small>+ ISO 42001 A.6.2.6</small></td><td>SAIF Agent Permissions<small>AI RMF MANAGE 2.4</small></td></tr>
-    </tbody>
-  </table>
-  <p class="grc-note">Only the last row is really an AI-framework problem. The other three are ISO 27001 and NIST 800-53 controls, on a faster clock.</p>
+  <h2>For audit and GRC teams</h2>
+  <p class="grc-lead">What to ask for, and where each incident maps.</p>
+  <ul class="gr">
+    <li><b>PHP2Shell</b><p class="ev"><span>Ask for:</span> Patch records for internet-facing systems, measured against a critical SLA in hours.</p><dl class="ids"><div><dt>ATT&amp;CK</dt><dd><span class="id1">T1190</span></dd></div><div><dt>NIST 800-53</dt><dd><span class="id1">SI-2</span> · <span class="id1">RA-5</span></dd></div><div><dt>ISO 27001</dt><dd><span class="id1">A.8.8</span></dd></div><div class="ai"><dt>AI frameworks</dt><dd><span class="id1">None directly</span></dd></div></dl></li>
+    <li><b>Storm-0940</b><p class="ev"><span>Ask for:</span> An inventory of third-party apps with Microsoft 365 access: owner, permissions, last review.</p><dl class="ids"><div><dt>ATT&amp;CK</dt><dd><span class="id1">T1199</span> · <span class="id1">T1078.004</span> · <span class="id1">T1110.003</span></dd></div><div><dt>NIST 800-53</dt><dd><span class="id1">SA-9</span> · <span class="id1">AC-2</span> · <span class="id1">AC-6</span></dd></div><div><dt>ISO 27001</dt><dd><span class="id1">A.5.19</span> · <span class="id1">A.5.21</span> · <span class="id1">A.8.2</span></dd></div><div class="ai"><dt>AI frameworks</dt><dd><span class="id1">None apply</span></dd></div></dl></li>
+    <li><b>JADEPUFFER</b><p class="ev"><span>Ask for:</span> KEV remediation status, and a default-credential scan of every exposed service.</p><dl class="ids"><div><dt>ATT&amp;CK</dt><dd><span class="id1">T1190</span> · <span class="id1">T1078.001</span> · <span class="id1">T1486</span> · <span class="id1">T1485</span></dd></div><div><dt>NIST 800-53</dt><dd><span class="id1">SI-2</span> · <span class="id1">IA-5</span> · <span class="id1">CP-9</span></dd></div><div><dt>ISO 27001</dt><dd><span class="id1">A.8.8</span> · <span class="id1">A.8.9</span> · <span class="id1">A.8.13</span></dd></div><div class="ai"><dt>AI frameworks</dt><dd><span class="id1">SAIF Insecure Integrated Component</span> · <span class="id1">OWASP LLM03</span></dd></div></dl></li>
+    <li><b>OpenAI / Hugging Face</b><p class="ev"><span>Ask for:</span> Egress rules for every environment where AI agents run, including package mirrors and DNS.</p><dl class="ids"><div><dt>ATT&amp;CK</dt><dd><span class="id1">T1190</span> · <span class="id1">T1552</span></dd></div><div><dt>NIST 800-53</dt><dd><span class="id1">SC-7</span> · <span class="id1">SI-4</span></dd></div><div><dt>ISO 27001</dt><dd><span class="id1">A.8.20</span> · <span class="id1">A.8.22</span></dd></div><div class="ai"><dt>AI frameworks</dt><dd><span class="id1">OWASP ASI10</span> · <span class="id1">SAIF Agent Permissions</span> · <span class="id1">AI RMF MANAGE 2.4</span> · <span class="id1">ISO 42001 A.6.2.6</span></dd></div></dl></li>
+  </ul>
+  <p class="grc-note">Only the AI-lab escape is squarely an AI-framework problem. The rest is ISO 27001 and NIST 800-53, on a faster clock.</p>
 </section>
 
 <!-- 10. Sources -->
