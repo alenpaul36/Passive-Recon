@@ -1,8 +1,0 @@
-Sources:
-
-PHP2Shell (CISA): https://www.cisa.gov/news-events/alerts/2026/10/21/critical-vulnerabilities-php-require-immediate-patching
-PHP2Shell (Wiz): https://www.wiz.io/blog/php2shell-php-rce
-45 min, 22.6M, timeline (Fortune): https://fortune.com/2026/10/21/ai-tools-discovered-the-php-vulnerability-that-could-take-down-70-of-the-internet-now-the-race-is-on-to-patch-it-before-ai-powered-hackers-attack/
-Storm-0940 (The Register): https://www.theregister.com/security/2026/10/22/microsoft-says-connectwise-breach-let-chinese-spies-loose-on-2250-cloud-tenants/5304687
-JADEPUFFER (The Hacker News): https://thehackernews.com/2026/07/ai-agent-exploits-langflow-rce-to.html
-OpenAI / Hugging Face (CSA): https://labs.cloudsecurityalliance.org/wp-content/uploads/2026/07/CSA_research_note_openai_sandbox_escape_huggingface_20260723-csa-styled.pdf
