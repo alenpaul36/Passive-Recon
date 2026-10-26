@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="color-scheme" content="dark">
-<title>Machine Speed Carousel</title>
+<title>What AI changed in cyber attacks in 2026</title>
 <style>
   @font-face {
     font-family: "Anton";
@@ -85,6 +85,9 @@
   .clock .s { display: block; margin-top: 8px; font-size: 21px; color: var(--muted); }
   .panel { margin-top: 24px; background: var(--accent); color: var(--accent-ink); padding: 30px 34px; font-size: 31px; line-height: 1.3; font-weight: 800; }
 
+  .panel-src { display: block; margin-top: 8px; font-size: 21px; font-weight: 600; opacity: .75; }
+  .src { margin-top: 16px; font-size: 22px; line-height: 1.35; color: var(--muted); }
+
   /* incident slides */
   .what { margin-top: 44px; font-size: 39px; line-height: 1.34; max-width: 930px; }
   .what + .what { margin-top: 18px; }
@@ -143,8 +146,8 @@
 
 <!-- 1. Cover -->
 <section class="slide cover">
-  <div class="cover-top"><p class="tag">Alen Paul</p></div>
-  <h1 class="duo"><span class="row"><span class="n">81 days</span><span class="l">to patch.</span></span><span class="row lo"><span class="n">45 min</span><span class="l">to exploit.</span></span></h1>
+  <div class="cover-top"><p class="tag">Alen Paul · Cybersecurity consultant</p></div>
+  <h1 class="duo"><span class="row"><span class="n">81 days</span><span class="l">to fix.</span></span><span class="row lo"><span class="n">45 min</span><span class="l">to attack.</span></span></h1>
   <p class="sub">What AI changed in cyber attacks this year, and what to do about it.</p>
   <div class="cover-bottom">
     <p>Four real incidents from July to October 2026</p>
@@ -155,7 +158,7 @@
 <!-- 2. Thesis -->
 <section class="slide field-1">
   <p class="statement">This year’s biggest AI attacks didn’t target AI.</p>
-  <p class="statement-foot">They hit old weak spots: unpatched servers, trusted vendor apps, default passwords. AI found and used them faster than teams could react. No AI security framework covers that.</p>
+  <p class="statement-foot">They hit old weak spots: unpatched servers, trusted vendor apps, default passwords. AI found and used them faster than teams could react. AI security frameworks barely touch that.</p>
   <p class="thesis-line">The fix isn’t new AI rules. It’s the security you already have, run at machine speed.</p>
 </section>
 
@@ -168,7 +171,7 @@
     <div><span class="n">2,900</span><span class="l">login attempts a minute, run by AI agents</span><span class="s">Microsoft</span></div>
     <div><span class="n">&lt;3 hrs</span><span class="l">from picking a target to admin access in its cloud</span><span class="s">Microsoft</span></div>
   </div>
-  <p class="panel">Now compare that with how long your team takes to patch a critical bug.</p>
+  <p class="panel">Meanwhile, the median organisation takes 43 days to fully patch a vulnerability.<span class="panel-src">Verizon Data Breach Investigations Report 2026</span></p>
 </section>
 
 <!-- 4. PHP2Shell -->
@@ -181,6 +184,7 @@
   </div>
   <p class="why">AI finds bugs faster, for both sides. Your patching speed is now the weak point.</p>
   <p class="move"><b>Your move:</b> find every server running PHP, including inside other software, and update it this week.</p>
+  <p class="src">Source: CISA, Wiz, and Cloudflare data via Fortune · Oct 2026</p>
 </section>
 
 <!-- 5. Storm-0940 -->
@@ -190,16 +194,18 @@
   <div class="big"><span class="n">2,250</span><span class="l">organisations targeted through one vendor’s access</span></div>
   <p class="why">Apps you approved years ago still hold the keys. AI lets attackers try all of them at once.</p>
   <p class="move"><b>Your move:</b> list every third-party app that can read your Microsoft 365 data, and remove the ones nobody owns.</p>
+  <p class="src">Source: Microsoft, via The Register · 22 Oct 2026</p>
 </section>
 
 <!-- 6. JADEPUFFER -->
 <section class="slide">
   <h2>AI-run ransomware used a year-old bug</h2>
-  <p class="what">An AI agent ran a whole attack on its own: in through a known flaw, past default passwords, then it locked and wiped the company’s database.</p>
+  <p class="what">Sysdig calls it the first: an AI agent ran a whole attack on its own, in through a known flaw, past default passwords, then it locked and wiped the company’s database.</p>
   <p class="what">It printed the decryption key once and never saved it. Paying wouldn’t have helped.</p>
   <div class="big"><span class="n">1 year</span><span class="l">the way in had sat on the US government’s list of bugs attackers already use</span></div>
   <p class="why">AI doesn’t need clever new bugs. It works through your old ones, fast.</p>
   <p class="move"><b>Your move:</b> fix everything on CISA’s “actively exploited” list first, and change every default password.</p>
+  <p class="src">Source: Sysdig, via The Hacker News · 2 Jul 2026</p>
 </section>
 
 <!-- 7. OpenAI / Hugging Face -->
@@ -207,9 +213,10 @@
   <h2>Even an AI lab couldn’t keep its AI in the box</h2>
   <p class="what">OpenAI was testing how well its models could hack. They found an overlooked way out of the test, broke into Hugging Face and went looking for the answers.</p>
   <p class="what">Hugging Face thought it was a normal attack for five days.</p>
-  <div class="big"><span class="n">17K</span><span class="l">actions over one weekend, by AI, against a real company</span></div>
+  <div class="big"><span class="n">~17K</span><span class="l">actions over one weekend, by AI, against a real company</span></div>
   <p class="why">If a top AI lab missed one exit, check yours. Telling an AI “don’t” is not a security control.</p>
   <p class="move"><b>Your move:</b> block every network route out of where your AI agents run, unless you approved it.</p>
+  <p class="src">Source: OpenAI’s disclosure, via the Cloud Security Alliance · 23 Jul 2026</p>
 </section>
 
 <!-- 8. Monday -->
@@ -249,6 +256,7 @@
     <li><a href="https://www.wiz.io/blog/php2shell-php-rce"><b>PHP2Shell: how AI found it</b><span>wiz.io · 21 Oct 2026</span></a></li>
     <li><a href="https://fortune.com/2026/10/21/ai-tools-discovered-the-php-vulnerability-that-could-take-down-70-of-the-internet-now-the-race-is-on-to-patch-it-before-ai-powered-hackers-attack/"><b>81 days, 45 minutes</b><span>fortune.com · 21 Oct 2026</span></a></li>
     <li><a href="https://www.theregister.com/security/2026/10/22/microsoft-says-connectwise-breach-let-chinese-spies-loose-on-2250-cloud-tenants/5304687"><b>Storm-0940 and ConnectWise</b><span>theregister.com · 22 Oct 2026</span></a></li>
+    <li><a href="https://www.verizon.com/business/resources/reports/dbir/"><b>43 days median to patch</b><span>Verizon DBIR · 2026</span></a></li>
     <li><a href="https://thehackernews.com/2026/07/ai-agent-exploits-langflow-rce-to.html"><b>JADEPUFFER, AI-run ransomware</b><span>thehackernews.com · 2 Jul 2026</span></a></li>
     <li><a href="https://labs.cloudsecurityalliance.org/wp-content/uploads/2026/07/CSA_research_note_openai_sandbox_escape_huggingface_20260723-csa-styled.pdf"><b>OpenAI models breach Hugging Face</b><span>Cloud Security Alliance · 23 Jul 2026</span></a></li>
   </ul>
@@ -260,7 +268,7 @@
   <p class="closer">Attackers automated the loop. Automate yours.</p>
   <p class="ask">What’s your critical patch SLA, in hours?</p>
   <p class="cta">Talk to me → <a href="https://www.heisenberg02.blog/">heisenberg02.blog</a></p>
-  <p class="sign">Alen Paul</p>
+  <p class="sign">Alen Paul · Cybersecurity consultant</p>
 </section>
 
 </body>
