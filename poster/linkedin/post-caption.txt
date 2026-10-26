@@ -1,3 +1,6 @@
-This year’s biggest AI attacks hit old weak spots.
+AI didn’t need new tricks this year.
+It just got faster at the old ones.
+
+What’s your critical patch SLA, in hours?
 
 #AISecurity #Cybersecurity
