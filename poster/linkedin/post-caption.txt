@@ -1,20 +1,24 @@
 2026's AI breaches weren't model failures. They were old mistakes with an agent in the middle.
 
-Over-trusted input, over-scoped secrets, unvetted dependencies. We've handled all three for years. Agents made each one reachable with a sentence.
+Over-trusted input, over-scoped secrets, unvetted dependencies. Agents made each one reachable with a sentence.
 
-Five shifts from this year, and the check I'd run first for each:
+I mapped five of this year's shifts to OWASP (LLM and Agentic Top 10), Google SAIF, NIST AI RMF, ISO/IEC 42001 and MITRE ATLAS, with a test you can run for each:
 
-→ Your review bot works for the PR author. A pull request title steered three AI code reviewers; one posted its own API key. Test: a harmless canary in a PR title on your own repo.
-→ Skills are code, even when they're markdown. 341 malicious skills turned up in one agent marketplace. Test: flag every skill that asks the agent to run, fetch or "install a prerequisite".
-→ MCP servers are the new browser extensions. The official Python SDK, LiteLLM and Splunk's MCP app all shipped fixes this year. Test: can you list every MCP server you run by Friday?
-→ "Trust this folder?" is the new "Enable macros?" Test: open an untrusted repo in a VM and watch what starts.
-→ Guardrails are a policy, not a boundary. Test: a week of agent traffic through an egress proxy.
+→ Your review bot works for the PR author. LLM01 · ASI01 · SAIF Agent Permissions
+→ Skills are code, even when they're markdown. LLM03 · ASI04 · ISO 42001 A.10.3
+→ MCP servers are the new browser extensions. ASI02 · NIST GOVERN 1.6
+→ "Trust this folder?" is the new "Enable macros?" ASI05 · ISO 27001 A.8.9
+→ Guardrails are a policy, not a boundary. ASI10 · SAIF Agent Observability · ISO 42001 A.6.2.8
 
-The last slide has five questions I'd put in any AI audit, mapped to the OWASP agentic Top 10.
+Two things stood out while mapping:
+1. Prompt injection has seven names across the frameworks. OWASP, SAIF and ATLAS tell you the fix; NIST, ISO and the EU AI Act ask you to prove you tested for it.
+2. Neither ISO/IEC 42001 nor the NIST AI RMF names least privilege for agents. That control still comes from ISO/IEC 27001 and NIST SP 800-53.
 
-Which one would your team struggle to answer?
+The last two slides are a preventive and detective control crosswalk you can take into your next AI audit.
+
+Which of the six controls would your team struggle to evidence?
 
 More from my toolbox: https://www.heisenberg02.blog/#toolbox
 Talk to me: https://www.heisenberg02.blog/#contact
 
-#AISecurity #Cybersecurity #PromptInjection #AgenticAI #MCP #AppSec #ITAudit
+#AISecurity #Cybersecurity #AIGovernance #ISO42001 #NISTAIRMF #OWASP #GoogleSAIF #AgenticAI
