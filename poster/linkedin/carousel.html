@@ -146,6 +146,15 @@
   .readmore { margin-top: 20px; font-weight: 800; font-size: 26px; }
   .readmore a { border-bottom: 3px solid currentColor; padding-bottom: 2px; }
 
+  /* sources */
+  .srcs { list-style: none; margin-top: 34px; display: grid; gap: 4px; }
+  .srcs li a { display: grid; grid-template-columns: 1fr 390px; gap: 20px; align-items: baseline; padding: 15px 22px; }
+  .srcs li:nth-child(odd) a { background: var(--surface); }
+  .srcs li b { font-size: 25px; line-height: 1.25; font-weight: 700; }
+  .srcs li span { text-align: right; font-size: 21px; color: var(--accent); font-weight: 700; line-height: 1.25; text-decoration: underline; text-underline-offset: 4px; }
+  .fwlinks { margin-top: auto; font-size: 23px; line-height: 1.6; }
+  .fwlinks a { color: var(--accent); text-decoration: underline; text-underline-offset: 4px; }
+
   /* close */
   .close .closer { margin-top: auto; font-size: 104px; line-height: 0.93; text-wrap: balance; }
   .close .ask { margin-top: 44px; max-width: 880px; font-size: 42px; line-height: 1.14; font-weight: 800; letter-spacing: -0.02em; }
@@ -311,12 +320,31 @@
   </ul>
 </section>
 
-<!-- 11. Close -->
+<!-- 11. Sources -->
+<section class="slide">
+  <h2>Check it yourself</h2>
+  <ul class="srcs">
+    <li><a href="https://www.cisa.gov/news-events/alerts/2026/10/21/critical-vulnerabilities-php-require-immediate-patching"><b>PHP2Shell: CVEs, fixed versions, CISA guidance</b><span>cisa.gov · PHP alert, 21 Oct 2026</span></a></li>
+    <li><a href="https://www.wiz.io/blog/php2shell-php-rce"><b>PHP2Shell: discovery, AI’s role, affected versions</b><span>wiz.io/blog/php2shell-php-rce</span></a></li>
+    <li><a href="https://fortune.com/2026/10/21/ai-tools-discovered-the-php-vulnerability-that-could-take-down-70-of-the-internet-now-the-race-is-on-to-patch-it-before-ai-powered-hackers-attack/"><b>45 minutes, 22.6M instances, 81-day timeline</b><span>fortune.com · 21 Oct 2026</span></a></li>
+    <li><a href="https://www.theregister.com/security/2026/10/22/microsoft-says-connectwise-breach-let-chinese-spies-loose-on-2250-cloud-tenants/5304687"><b>Storm-0940: 2,250 tenants, 2,900/min, &lt;3 hrs</b><span>theregister.com · 22 Oct 2026</span></a></li>
+    <li><a href="https://thehackernews.com/2026/07/ai-agent-exploits-langflow-rce-to.html"><b>JADEPUFFER: first AI-run ransomware, 31 sec</b><span>thehackernews.com · 2 Jul 2026</span></a></li>
+    <li><a href="https://labs.cloudsecurityalliance.org/wp-content/uploads/2026/07/CSA_research_note_openai_sandbox_escape_huggingface_20260723-csa-styled.pdf"><b>OpenAI models breach Hugging Face, 17K actions</b><span>Cloud Security Alliance · 23 Jul 2026</span></a></li>
+    <li><a href="https://venturebeat.com/security/ai-agent-runtime-security-system-card-audit-comment-and-control-2026"><b>PR title steers three AI code reviewers</b><span>venturebeat.com · Apr 2026</span></a></li>
+    <li><a href="https://unit42.paloaltonetworks.com/openclaw-ai-supply-chain-risk/"><b>341 malicious skills on ClawHub</b><span>unit42.paloaltonetworks.com</span></a></li>
+    <li><a href="https://www.developer-tech.com/news/ai-coding-clis-trustfall-mcp-server-execution-risk/"><b>TrustFall: folder trust starts MCP servers</b><span>developer-tech.com</span></a></li>
+    <li><a href="https://labs.cloudsecurityalliance.org/research/csa-research-note-mcp-python-sdk-oauth-flaw-20260930-csa-sty/"><b>MCP Python SDK OAuth flaw</b><span>Cloud Security Alliance · 30 Sep 2026</span></a></li>
+  </ul>
+  <p class="fwlinks"><b>Frameworks:</b> <a href="https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications-for-2026">OWASP Agentic Top 10</a> · <a href="https://genai.owasp.org/llm-top-10/">OWASP LLM Top 10</a> · <a href="https://saif.google/secure-ai-framework/controls">Google SAIF</a> · <a href="https://www.nist.gov/itl/ai-risk-management-framework">NIST AI RMF</a> · <a href="https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final">NIST SP 800-53</a> · <a href="https://www.iso.org/standard/81230.html">ISO/IEC 42001</a> · <a href="https://www.iso.org/standard/27001">ISO/IEC 27001</a> · <a href="https://attack.mitre.org/">MITRE ATT&amp;CK</a> · <a href="https://atlas.mitre.org/">MITRE ATLAS</a> · <a href="https://www.cisa.gov/known-exploited-vulnerabilities-catalog">CISA KEV</a></p>
+  <p class="src">Full links are in the post caption.</p>
+</section>
+
+<!-- 12. Close -->
 <section class="slide field-accent close">
   <p class="closer">Attackers automated the loop. Automate yours.</p>
   <p class="ask">What’s your critical patch SLA, in hours?</p>
-  <p class="sign"><a href="https://www.heisenberg02.blog/">Alen Paul · heisenberg02.blog</a></p>
-  <p class="sources">Sources: CISA alert on PHP CVE-2026-109618/9 (21 Oct 2026) · Wiz Research, “PHP2Shell” · Fortune, 21 Oct 2026 (Cloudflare, AWS, Palo Alto data) · Microsoft on Storm-0940 via The Register and TechCrunch (22 Oct 2026) · Sysdig on JADEPUFFER via The Hacker News (2 Jul 2026) · Cloud Security Alliance, “When the Model Is the Attacker” (23 Jul 2026) · Guan, Liu &amp; Zhong, “Comment and Control” · Unit 42 and Koi Security on ClawHub · Adversa AI “TrustFall” · Cycode GHSA-qx49-fqc8-xw99 · OWASP LLM and Agentic Top 10 · Google SAIF · NIST AI RMF and SP 800-53 · ISO/IEC 42001 and 27001 · MITRE ATT&amp;CK and ATLAS.</p>
+  <p class="cta">Talk to me → <a href="https://www.heisenberg02.blog/">heisenberg02.blog</a></p>
+  <p class="sign">Alen Paul</p>
 </section>
 
 </body>
