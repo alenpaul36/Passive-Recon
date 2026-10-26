@@ -87,6 +87,8 @@
 
   .panel-src { display: block; margin-top: 8px; font-size: 21px; font-weight: 600; opacity: .75; }
   .src { margin-top: 16px; font-size: 22px; line-height: 1.35; color: var(--muted); }
+  .src a, .clock .s a { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; }
+  .panel-src a { text-decoration: underline; text-underline-offset: 3px; }
 
   /* incident slides */
   .what { margin-top: 44px; font-size: 39px; line-height: 1.34; max-width: 930px; }
@@ -166,12 +168,12 @@
 <section class="slide field-surface">
   <h2>The attacker’s clock now ticks in minutes</h2>
   <div class="clock">
-    <div><span class="n">45 min</span><span class="l">from a bug going public to tens of thousands of attack attempts</span><span class="s">Cloudflare</span></div>
-    <div><span class="n">31 sec</span><span class="l">for an AI attacker to work out why a step failed, and fix it</span><span class="s">Sysdig</span></div>
-    <div><span class="n">2,900</span><span class="l">login attempts a minute, run by AI agents</span><span class="s">Microsoft</span></div>
-    <div><span class="n">&lt;3 hrs</span><span class="l">from picking a target to admin access in its cloud, in some cases</span><span class="s">Microsoft</span></div>
+    <div><span class="n">45 min</span><span class="l">from a bug going public to tens of thousands of attack attempts</span><span class="s"><a href="https://fortune.com/2026/10/21/ai-tools-discovered-the-php-vulnerability-that-could-take-down-70-of-the-internet-now-the-race-is-on-to-patch-it-before-ai-powered-hackers-attack/">Cloudflare, via Fortune</a></span></div>
+    <div><span class="n">31 sec</span><span class="l">for an AI attacker to work out why a step failed, and fix it</span><span class="s"><a href="https://thehackernews.com/2026/07/ai-agent-exploits-langflow-rce-to.html">Sysdig, via The Hacker News</a></span></div>
+    <div><span class="n">2,900</span><span class="l">login attempts a minute, run by AI agents</span><span class="s"><a href="https://www.theregister.com/security/2026/10/22/microsoft-says-connectwise-breach-let-chinese-spies-loose-on-2250-cloud-tenants/5304687">Microsoft, via The Register</a></span></div>
+    <div><span class="n">&lt;3 hrs</span><span class="l">from picking a target to admin access in its cloud, in some cases</span><span class="s"><a href="https://www.theregister.com/security/2026/10/22/microsoft-says-connectwise-breach-let-chinese-spies-loose-on-2250-cloud-tenants/5304687">Microsoft, via The Register</a></span></div>
   </div>
-  <p class="panel">Meanwhile, the median time to fully patch a vulnerability is 43 days.<span class="panel-src">Verizon Data Breach Investigations Report 2026</span></p>
+  <p class="panel">Meanwhile, the median time to fully patch a vulnerability is 43 days.<span class="panel-src"><a href="https://www.verizon.com/business/resources/reports/dbir/">Verizon Data Breach Investigations Report 2026</a></span></p>
 </section>
 
 <!-- 4. PHP2Shell -->
@@ -184,7 +186,7 @@
   </div>
   <p class="why">AI finds bugs faster, for both sides. Your patching speed is now the weak point.</p>
   <p class="move"><b>Your move:</b> find every server running PHP, including inside other software, and update it this week.</p>
-  <p class="src">Source: CISA, Wiz, and Cloudflare data via Fortune · Oct 2026</p>
+  <p class="src">Source: <a href="https://www.cisa.gov/news-events/alerts/2026/10/21/critical-vulnerabilities-php-require-immediate-patching">CISA</a>, <a href="https://www.wiz.io/blog/php2shell-php-rce">Wiz</a>, and Cloudflare data via <a href="https://fortune.com/2026/10/21/ai-tools-discovered-the-php-vulnerability-that-could-take-down-70-of-the-internet-now-the-race-is-on-to-patch-it-before-ai-powered-hackers-attack/">Fortune</a> · Oct 2026</p>
 </section>
 
 <!-- 5. Storm-0940 -->
@@ -194,7 +196,7 @@
   <div class="big"><span class="n">2,250</span><span class="l">organisations targeted through one vendor’s access</span></div>
   <p class="why">Apps you approved years ago still hold the keys. AI lets attackers try all of them at once.</p>
   <p class="move"><b>Your move:</b> list every third-party app that can read your Microsoft 365 data, and remove the ones nobody owns.</p>
-  <p class="src">Source: Microsoft, via The Register · 22 Oct 2026</p>
+  <p class="src">Source: Microsoft, via <a href="https://www.theregister.com/security/2026/10/22/microsoft-says-connectwise-breach-let-chinese-spies-loose-on-2250-cloud-tenants/5304687">The Register</a> · 22 Oct 2026</p>
 </section>
 
 <!-- 6. JADEPUFFER -->
@@ -205,7 +207,7 @@
   <div class="big"><span class="n">1 year</span><span class="l">the way in had sat on the US government’s list of bugs attackers already use</span></div>
   <p class="why">AI doesn’t need clever new bugs. It works through your old ones, fast.</p>
   <p class="move"><b>Your move:</b> fix everything on CISA’s “actively exploited” list first, and change every default password.</p>
-  <p class="src">Source: Sysdig, via The Hacker News · 2 Jul 2026</p>
+  <p class="src">Source: Sysdig, via <a href="https://thehackernews.com/2026/07/ai-agent-exploits-langflow-rce-to.html">The Hacker News</a> · 2 Jul 2026</p>
 </section>
 
 <!-- 7. OpenAI / Hugging Face -->
@@ -216,7 +218,7 @@
   <div class="big"><span class="n">~17K</span><span class="l">actions over one weekend before Hugging Face caught it</span></div>
   <p class="why">If a top AI lab missed one exit, check yours. Telling an AI “don’t” is not a security control.</p>
   <p class="move"><b>Your move:</b> block every network route out of where your AI agents run, unless you approved it.</p>
-  <p class="src">Source: OpenAI’s disclosure, via the Cloud Security Alliance · 23 Jul 2026</p>
+  <p class="src">Source: OpenAI’s disclosure, via the <a href="https://labs.cloudsecurityalliance.org/wp-content/uploads/2026/07/CSA_research_note_openai_sandbox_escape_huggingface_20260723-csa-styled.pdf">Cloud Security Alliance</a> · 23 Jul 2026</p>
 </section>
 
 <!-- 8. Monday -->
