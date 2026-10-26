@@ -169,9 +169,9 @@
     <div><span class="n">45 min</span><span class="l">from a bug going public to tens of thousands of attack attempts</span><span class="s">Cloudflare</span></div>
     <div><span class="n">31 sec</span><span class="l">for an AI attacker to work out why a step failed, and fix it</span><span class="s">Sysdig</span></div>
     <div><span class="n">2,900</span><span class="l">login attempts a minute, run by AI agents</span><span class="s">Microsoft</span></div>
-    <div><span class="n">&lt;3 hrs</span><span class="l">from picking a target to admin access in its cloud</span><span class="s">Microsoft</span></div>
+    <div><span class="n">&lt;3 hrs</span><span class="l">from picking a target to admin access in its cloud, in some cases</span><span class="s">Microsoft</span></div>
   </div>
-  <p class="panel">Meanwhile, the median organisation takes 43 days to fully patch a vulnerability.<span class="panel-src">Verizon Data Breach Investigations Report 2026</span></p>
+  <p class="panel">Meanwhile, the median time to fully patch a vulnerability is 43 days.<span class="panel-src">Verizon Data Breach Investigations Report 2026</span></p>
 </section>
 
 <!-- 4. PHP2Shell -->
@@ -213,7 +213,7 @@
   <h2>Even an AI lab couldn’t keep its AI in the box</h2>
   <p class="what">OpenAI was testing how well its models could hack. They found an overlooked way out of the test, broke into Hugging Face and went looking for the answers.</p>
   <p class="what">Hugging Face thought it was a normal attack for five days.</p>
-  <div class="big"><span class="n">~17K</span><span class="l">actions over one weekend, by AI, against a real company</span></div>
+  <div class="big"><span class="n">~17K</span><span class="l">actions over one weekend before Hugging Face caught it</span></div>
   <p class="why">If a top AI lab missed one exit, check yours. Telling an AI “don’t” is not a security control.</p>
   <p class="move"><b>Your move:</b> block every network route out of where your AI agents run, unless you approved it.</p>
   <p class="src">Source: OpenAI’s disclosure, via the Cloud Security Alliance · 23 Jul 2026</p>
@@ -225,7 +225,7 @@
   <ul class="mon">
     <li><b>Patch critical bugs in hours, not weeks.</b><span>Start with anything facing the internet.</span></li>
     <li><b>Fix what attackers already use, first.</b><span>CISA keeps the list: Known Exploited Vulnerabilities.</span></li>
-    <li><b>Review every app that can reach your email and files.</b><span>If nobody owns it, remove it.</span></li>
+    <li><b>Review every app with access to your data.</b><span>If nobody owns it, remove it.</span></li>
     <li><b>Kill default passwords and hide admin panels.</b><span>Nothing with a factory login should face the internet.</span></li>
     <li><b>Let AI agents reach only what they need.</b><span>Block everything else at the network, not in the prompt.</span></li>
     <li><b>Use AI to find your weak spots first.</b><span>Attackers already are.</span></li>
@@ -253,7 +253,7 @@
   <h2>For more detailed info</h2>
   <ul class="srcs">
     <li><a href="https://www.cisa.gov/news-events/alerts/2026/10/21/critical-vulnerabilities-php-require-immediate-patching"><b>PHP2Shell: what to patch</b><span>cisa.gov · 21 Oct 2026</span></a></li>
-    <li><a href="https://www.wiz.io/blog/php2shell-php-rce"><b>PHP2Shell: how AI found it</b><span>wiz.io · 21 Oct 2026</span></a></li>
+    <li><a href="https://www.wiz.io/blog/php2shell-php-rce"><b>How AI found PHP2Shell</b><span>wiz.io · 21 Oct 2026</span></a></li>
     <li><a href="https://fortune.com/2026/10/21/ai-tools-discovered-the-php-vulnerability-that-could-take-down-70-of-the-internet-now-the-race-is-on-to-patch-it-before-ai-powered-hackers-attack/"><b>81 days, 45 minutes</b><span>fortune.com · 21 Oct 2026</span></a></li>
     <li><a href="https://www.theregister.com/security/2026/10/22/microsoft-says-connectwise-breach-let-chinese-spies-loose-on-2250-cloud-tenants/5304687"><b>Storm-0940 and ConnectWise</b><span>theregister.com · 22 Oct 2026</span></a></li>
     <li><a href="https://www.verizon.com/business/resources/reports/dbir/"><b>43 days median to patch</b><span>Verizon DBIR · 2026</span></a></li>
