@@ -1,0 +1,14 @@
+The prompt is the exploit.
+
+AI has moved from chatbots to agents that browse, write code, call tools and hold credentials. That means any text an agent reads can give it orders. An attacker no longer needs exploit code, just a sentence in the right place.
+
+In this carousel:
+→ How an indirect prompt injection actually works, step by step
+→ The "lethal trifecta" every agent design should avoid
+→ What's new: MCP tool poisoning, AI-run intrusions, slopsquatting, memory poisoning
+→ The OWASP Top 10 for Agentic Applications
+→ Seven things to do on Monday
+
+Which of these is your team least ready for?
+
+#AISecurity #Cybersecurity #PromptInjection #AgenticAI #OWASP #AppSec
