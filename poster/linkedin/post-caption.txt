@@ -1,6 +1,6 @@
 Attacks now run at machine speed.
 Most defence still runs on change tickets.
 
-What’s your critical patch SLA, in hours?
+How long does your team take to patch a critical bug?
 
 #AISecurity #Cybersecurity
