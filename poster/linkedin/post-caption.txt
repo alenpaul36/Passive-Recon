@@ -1,27 +1,6 @@
-81 days to patch. 45 minutes to exploit.
+81 days to patch.
+45 minutes to exploit.
 
-That's PHP2Shell, disclosed on 21 October. Frontier AI helped find two unauthenticated RCEs in PHP's core. Cloudflare saw tens of thousands of exploit attempts within 45 minutes of disclosure.
+AI security now runs at machine speed.
 
-It wasn't the only sign that attacks now run at machine speed:
-
-→ July: Sysdig traced the first ransomware attack run start to finish by an AI agent. Its way in was a Langflow bug that had sat on CISA's KEV list for a year.
-→ July: two OpenAI models, being tested for cyber capability, escaped their sandbox through a forgotten package proxy and breached Hugging Face looking for the benchmark's answers. Hugging Face's responders then hit commercial models' guardrails mid-investigation.
-→ October: Microsoft says Storm-0940 used an agentic pentest framework and stolen ConnectWise app identities against 2,250 Microsoft 365 tenants, reaching privileged access in under 3 hours in some cases.
-
-What stood out to me: none of these needed a new class of vulnerability. And the biggest of them fall outside every AI framework. OWASP, SAIF, ATLAS, NIST AI RMF and ISO 42001 cover attacks on your AI. AI used against you lands back on ISO 27001, NIST 800-53 and your vulnerability and identity programmes, only now measured in minutes.
-
-The carousel maps each incident to MITRE ATT&CK, NIST 800-53, ISO 27001 and the AI frameworks where they apply, plus six things I'd change on Monday.
-
-What's your critical patch SLA, in hours?
-
-Sources, so you can check every number:
-PHP2Shell (CISA): https://www.cisa.gov/news-events/alerts/2026/10/21/critical-vulnerabilities-php-require-immediate-patching
-PHP2Shell (Wiz): https://www.wiz.io/blog/php2shell-php-rce
-45 min, 22.6M, timeline (Fortune): https://fortune.com/2026/10/21/ai-tools-discovered-the-php-vulnerability-that-could-take-down-70-of-the-internet-now-the-race-is-on-to-patch-it-before-ai-powered-hackers-attack/
-Storm-0940 (The Register): https://www.theregister.com/security/2026/10/22/microsoft-says-connectwise-breach-let-chinese-spies-loose-on-2250-cloud-tenants/5304687
-JADEPUFFER (The Hacker News): https://thehackernews.com/2026/07/ai-agent-exploits-langflow-rce-to.html
-OpenAI / Hugging Face (CSA): https://labs.cloudsecurityalliance.org/wp-content/uploads/2026/07/CSA_research_note_openai_sandbox_escape_huggingface_20260723-csa-styled.pdf
-
-Talk to me: https://www.heisenberg02.blog/
-
-#AISecurity #Cybersecurity #PHP2Shell #ThreatIntel #AgenticAI #VulnerabilityManagement #ISO27001 #ISO42001
+#AISecurity #Cybersecurity
