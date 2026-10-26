@@ -1,20 +1,20 @@
-The prompt is the exploit.
+2026's AI breaches weren't model failures. They were old mistakes with an agent in the middle.
 
-AI agents can't tell your instructions apart from the text they read. A web page, an email, a pull request or a tool's output can quietly give them orders. In 2026 that stopped being theory.
+Over-trusted input, over-scoped secrets, unvetted dependencies. We've handled all three for years. Agents made each one reachable with a sentence.
 
-What's new, in plain terms (with the technical detail in the slides):
+Five shifts from this year, and the check I'd run first for each:
 
-→ A pull request title made three AI code reviewers follow an attacker's instructions. One posted its own API key. (“Comment and Control”, Apr 2026)
-→ AI skill marketplaces are shipping malware. Hundreds of poisoned skills on ClawHub delivered a macOS infostealer.
-→ MCP, the way agents plug into tools, is collecting classic CVEs. The newest is an OAuth login hijack in the official Python SDK (Sep 2026).
-→ Opening a repo in an AI coding tool can run its code once you accept a single trust prompt ("TrustFall").
-→ Agents are now on both sides: attackers run them in real operations, and agents are causing incidents of their own.
+→ Your review bot works for the PR author. A pull request title steered three AI code reviewers; one posted its own API key. Test: a harmless canary in a PR title on your own repo.
+→ Skills are code, even when they're markdown. 341 malicious skills turned up in one agent marketplace. Test: flag every skill that asks the agent to run, fetch or "install a prerequisite".
+→ MCP servers are the new browser extensions. The official Python SDK, LiteLLM and Splunk's MCP app all shipped fixes this year. Test: can you list every MCP server you run by Friday?
+→ "Trust this folder?" is the new "Enable macros?" Test: open an untrusted repo in a VM and watch what starts.
+→ Guardrails are a policy, not a boundary. Test: a week of agent traffic through an egress proxy.
 
-Plus the one design rule behind most of these breaches, the OWASP agentic Top 10 mapping, and six things to do this week.
+The last slide has five questions I'd put in any AI audit, mapped to the OWASP agentic Top 10.
 
-Which of these would hit your team first?
+Which one would your team struggle to answer?
 
-More tools and write-ups: https://www.heisenberg02.blog/#toolbox
-Get in touch: https://www.heisenberg02.blog/#contact
+More from my toolbox: https://www.heisenberg02.blog/#toolbox
+Talk to me: https://www.heisenberg02.blog/#contact
 
-#AISecurity #Cybersecurity #PromptInjection #AgenticAI #MCP #AppSec #OWASP
+#AISecurity #Cybersecurity #PromptInjection #AgenticAI #MCP #AppSec #ITAudit
