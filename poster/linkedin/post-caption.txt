@@ -14,7 +14,6 @@ The carousel maps each incident to MITRE ATT&CK, NIST 800-53, ISO 27001 and the 
 
 What's your critical patch SLA, in hours?
 
-More from my toolbox: https://www.heisenberg02.blog/#toolbox
-Talk to me: https://www.heisenberg02.blog/#contact
+https://www.heisenberg02.blog/
 
 #AISecurity #Cybersecurity #PHP2Shell #ThreatIntel #AgenticAI #VulnerabilityManagement #ISO27001 #ISO42001
