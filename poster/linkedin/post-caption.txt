@@ -1,14 +1,20 @@
 The prompt is the exploit.
 
-AI has moved from chatbots to agents that browse, write code, call tools and hold credentials. That means any text an agent reads can give it orders. An attacker no longer needs exploit code, just a sentence in the right place.
+AI agents can't tell your instructions apart from the text they read. A web page, an email, a pull request or a tool's output can quietly give them orders. In 2026 that stopped being theory.
 
-In this carousel:
-→ How an indirect prompt injection actually works, step by step
-→ The "lethal trifecta" every agent design should avoid
-→ What's new: MCP tool poisoning, AI-run intrusions, slopsquatting, memory poisoning
-→ The OWASP Top 10 for Agentic Applications
-→ Seven things to do on Monday
+What's new, in plain terms (with the technical detail in the slides):
 
-Which of these is your team least ready for?
+→ A pull request title made three AI code reviewers follow an attacker's instructions. One posted its own API key. (“Comment and Control”, Apr 2026)
+→ AI skill marketplaces are shipping malware. Hundreds of poisoned skills on ClawHub delivered a macOS infostealer.
+→ MCP, the way agents plug into tools, is collecting classic CVEs. The newest is an OAuth login hijack in the official Python SDK (Sep 2026).
+→ Opening a repo in an AI coding tool can run its code once you accept a single trust prompt ("TrustFall").
+→ Agents are now on both sides: attackers run them in real operations, and agents are causing incidents of their own.
 
-#AISecurity #Cybersecurity #PromptInjection #AgenticAI #OWASP #AppSec
+Plus the one design rule behind most of these breaches, the OWASP agentic Top 10 mapping, and six things to do this week.
+
+Which of these would hit your team first?
+
+More tools and write-ups: https://www.heisenberg02.blog/#toolbox
+Get in touch: https://www.heisenberg02.blog/#contact
+
+#AISecurity #Cybersecurity #PromptInjection #AgenticAI #MCP #AppSec #OWASP
